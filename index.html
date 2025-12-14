@@ -3,377 +3,567 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ny Aro OLINJANAHARY - Portfolio Marketing</title>
-    <style>/* Définition des variables de couleurs */
-:root {
-    --primary-color: #C9A24D; /* La couleur d'accent */
-    --text-color: #ffffff;
-    --background-color: #000000;
-    --secondary-text-color: #aaaaaa;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: sans-serif;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    overflow-x: hidden;
-}
-
-a {
-    text-decoration: none;
-    color: var(--text-color);
-}
-
-/* --- En-tête (Header) --- */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 5%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.logo-z {
-    color: var(--primary-color);
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-}
-
-nav ul li {
-    margin-left: 30px;
-}
-
-nav ul li a {
-    font-size: 14px;
-    opacity: 0.8;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: var(--primary-color);
-    opacity: 1;
-}
-
-.social-icons a {
-    margin-left: 15px;
-    font-size: 16px;
-    border: 1px solid #333;
-    width: 35px;
-    height: 35px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-.social-icons a:hover {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-/* --- Section Principale (Hero) --- */
-.hero-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding-left: 5%; /* Alignement du contenu à gauche */
-}
-
-/* Conteneur d'image pour le diaporama */
-.image-slider {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 60%; /* L'image prend 60% de la largeur */
-    height: 100%;
-    overflow: hidden;
-}
-
-#background-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.5; /* Légère opacité pour améliorer la lisibilité du texte */
-    transition: opacity 1s ease-in-out;
-}
-
-/* Contenu du texte */
-.hero-content {
-    position: relative;
-    z-index: 5;
-    width: 40%; /* Le contenu prend 40% de la largeur */
-    padding: 100px 0; /* Ajout d'un padding pour un meilleur alignement vertical */
-}
-
-.greeting {
-    font-size: 16px;
-    color: var(--secondary-text-color);
-    margin-bottom: 5px;
-}
-
-.hero-content h1 {
-    font-size: 50px;
-    margin-bottom: 5px;
-}
-
-.hero-content h2 {
-    font-size: 24px;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-}
-
-.bio {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--secondary-text-color);
-    max-width: 450px;
-    margin-bottom: 30px;
-}
-
-/* Boutons d'appel à l'action */
-.cta-buttons a {
-    padding: 12px 30px;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 14px;
-    border-radius: 5px;
-    transition: all 0.3s;
-    margin-right: 15px;
-    display: inline-block;
-}
-
-.primary-btn {
-    background-color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-    color: var(--background-color);
-}
-
-.primary-btn:hover {
-    background-color: #a8853e; /* Une couleur légèrement plus foncée */
-    border-color: #a8853e;
-}
-
-.secondary-btn {
-    background-color: transparent;
-    border: 2px solid var(--text-color);
-    color: var(--text-color);
-}
-
-.secondary-btn:hover {
-    background-color: var(--text-color);
-    color: var(--background-color);
-}
-
-/* Navigation du Diaporama (Flèches) */
-.slider-nav {
-    position: absolute;
-    bottom: 50px;
-    right: 50px;
-    z-index: 10;
-}
-
-.arrow-btn {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--text-color);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 14px;
-    margin-left: 10px;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-.arrow-btn:hover {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-/* --- Adaptation Responsive (Minimum) --- */
-@media (max-width: 900px) {
-    header {
-        flex-direction: column;
-        padding-top: 50px;
-    }
-    
-    nav {
-        margin-top: 20px;
-        order: 3; /* Déplacer la navigation vers le bas sur mobile */
-    }
-
-    nav ul li {
-        margin: 0 10px;
-    }
-
-    .social-icons {
-        margin-top: 15px;
-    }
-
-    .hero-section {
-        flex-direction: column;
-        text-align: center;
-        padding: 150px 5% 50px;
-    }
-
-    .image-slider {
-        position: relative;
-        width: 100%;
-        height: 40vh; /* Réduire la hauteur de l'image sur mobile */
-    }
-
-    .hero-content {
-        width: 100%;
-        padding: 40px 0 0;
-    }
-
-    .slider-nav {
-        display: none; /* Cache les flèches sur les petits écrans */
-    }
-
-    .cta-buttons a {
-        margin: 10px 10px 0 0;
-    }
-}</style>
+    <title>Ny Aro-Portfolio</title>
+    <link rel="shortcut icon" href="img/FINAL LOGO.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Définition des variables de couleurs */
+        :root {
+            --primary-color: #C9A24D; /* La couleur Gold/Premium */
+            --text-color: #ffffff;
+            --background-color: #000000;
+            --secondary-text-color: #aaaaaa;
+            --hero-content-width: 45%; 
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            overflow: hidden; /* Cache les barres de défilement pour l'effet Full Page */
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        /* --- En-tête (Header) --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 5%; /* Padding de 5% pour aligner le contenu */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-left: 0; /* Modification: Suppression de la marge gauche supplémentaire pour aligner le logo */
+        }
+
+        .logo-z {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 35px;
+        }
+
+        nav ul li a {
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            transition: color 0.3s, border-bottom 0.3s; /* Ajout transition pour le trait */
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+            opacity: 1;
+        }
+        
+        nav ul li a.active { /* Modification: Style interactif amélioré */
+            color: var(--primary-color);
+            opacity: 1;
+            border-bottom: 2px solid var(--primary-color); /* Ajout d'un trait jaune sous le lien actif */
+            padding-bottom: 3px;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .hamburger-menu {
+            margin-left: 25px;
+            font-size: 20px;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        
+        /* Cacher les icônes sociales du header */
+        .header-actions .social-icons {
+            display: none;
+        }
+
+        /* --- Conteneur du site pour le défilement horizontal --- */
+        .wrapper {
+            display: flex;
+            width: 400%; /* 4 sections */
+            height: 100vh;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Style pour chaque section pleine page */
+        .page-section {
+            width: 25%;
+            height: 100%;
+            position: relative;
+            flex-shrink: 0;
+            display: flex; 
+            align-items: center;
+            padding-left: 5%; /* Modification: Marge à gauche ajustée à 5% pour aligner avec le header */
+        }
+
+        /* Conteneur d'image pour le diaporama */
+        .image-slider {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 55%; 
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #background-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7; 
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Contenu du texte */
+        .hero-content {
+          margin-left: -200px;
+            z-index: 5;
+            width: var(--hero-content-width); 
+            padding: 100px 0;
+
+        }
+
+        .greeting {
+            font-size: 18px;
+            color: var(--primary-color); 
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .hero-content h1 {
+            font-size: 60px;
+            margin-bottom: 5px;
+            font-weight: 800;
+        }
+
+        .hero-content h2 {
+            font-size: 26px;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .bio {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--secondary-text-color);
+            max-width: 500px;
+            margin-bottom: 35px;
+        }
+
+        /* Boutons d'appel à l'action - Pas de changement */
+        .cta-buttons a {
+            padding: 14px 35px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            margin-right: 20px;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        .primary-btn {
+            background-color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            color: var(--background-color);
+        }
+
+        .primary-btn:hover {
+            background-color: #a8853e;
+            border-color: #a8853e;
+            box-shadow: 0 0 15px rgba(201, 162, 77, 0.6); 
+        }
+
+        .secondary-btn {
+            background-color: transparent;
+            border: 2px solid var(--text-color);
+            color: var(--text-color);
+        }
+
+        .secondary-btn:hover {
+            background-color: var(--text-color);
+            color: var(--background-color);
+            border-color: var(--text-color);
+        }
+
+        /* Navigation des Flèches - Pas de changement */
+        .slider-nav {
+            position: fixed; 
+            bottom: 50px;
+            right: 50px;
+            z-index: 100;
+        }
+
+        .arrow-btn {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .arrow-btn:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        /* --- Styles pour les autres sections (placeholders) --- */
+        .placeholder-content {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0;
+            text-align: left;
+        }
+
+        .placeholder-content h2 {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .placeholder-content p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        /* --- Contact Form Specific Styles (NOUVEAU) --- */
+        .contact-form-container {
+            max-width: 500px;
+            width: 100%;
+            margin-top: 20px; 
+        }
+        
+        .contact-form-container .contact-encouragement {
+            margin-bottom: 30px;
+            color: var(--secondary-text-color);
+            font-size: 16px;
+        }
+
+        .contact-form-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .input-field,
+        .textarea-field {
+            width: 100%;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.05); /* Fond très léger */
+            border: 1px solid rgba(201, 162, 77, 0.3); /* Bordure légère couleur primary */
+            color: var(--text-color);
+            border-radius: 8px;
+            font-size: 15px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .input-field:focus,
+        .textarea-field:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(201, 162, 77, 0.5); /* Effet chaleureux/interactif */
+        }
+
+        .textarea-field {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Style pour le bouton d'envoi */
+        .send-btn {
+            padding: 14px 35px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+            background-color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            color: var(--background-color);
+            cursor: pointer;
+            margin-top: 10px;
+            align-self: flex-start; /* Aligner le bouton à gauche (avec le reste du contenu) */
+        }
+
+        .send-btn:hover {
+            background-color: #a8853e;
+            border-color: #a8853e;
+            box-shadow: 0 0 20px rgba(201, 162, 77, 0.8); 
+            transform: translateY(-2px);
+        }
+        /* Adaptation des placeholders pour qu'ils soient lisibles */
+        ::placeholder { 
+            color: var(--secondary-text-color);
+            opacity: 0.7; 
+        }
+
+        /* --- Pied de Page (Footer) et Icônes Sociales (Modification) --- */
+        footer {
+            position: fixed; 
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 5%; /* Ajustement du padding pour aligner avec le contenu */
+            background-color: transparent; 
+            z-index: 100;
+            
+            display: flex; /* Utilisation de Flexbox */
+            justify-content: space-between; /* Pour séparer les icônes du copyright */
+            align-items: center;
+        }
+        
+        .social-icons-footer a {
+            margin-right: 15px; 
+            font-size: 18px; 
+            border: 1px solid var(--secondary-text-color);
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+            color: var(--secondary-text-color);
+        }
+
+        .social-icons-footer a:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--background-color);
+        }
+
+        .copyright-text {
+            font-size: 12px;
+            color: var(--secondary-text-color);
+            margin-right: 450px;
+        }
+
+    </style>
 </head>
 <body>
-
     <header>
         <div class="logo">
-            <span class="logo-z">Z</span>OOMIN
+            <span class="logo-z">Wi</span>nner
         </div>
+        
         <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
+            <ul id="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-        <div class="social-icons">
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        
+        <div class="header-actions">
+            <div class="hamburger-menu" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
 
-    <main class="hero-section">
-        <div class="image-slider">
-            <img id="background-img" src="img/i6.png" height="50px" width="50px" alt="Image de fond du portfolio">
-        </div>
-
-        <div class="hero-content">
-            <p class="greeting">HELLO THERE!</p>
-            <h1>I'm Ny Aro **OLINJANAHARY**</h1>
-            <h2>**MARKETING & MANAGEMENT STUDENT**</h2>
-            <p class="bio">
-                My name is Ny Aro, and I am looking for a junior position to further develop my skills.
-                I am a dynamic, curious, and versatile student. Highly motivated to learn and grow in a professional environment.
-            </p>
-            <div class="cta-buttons">
-                <a href="Ny Aro CV.pdf" download="Ny_Aro_OLINJANAHARY_CV.pdf" class="btn primary-btn">Download CV</a>
-                <a href="#contact" class="btn secondary-btn">Contact Me</a>
+    <div class="wrapper" id="page-wrapper">
+        
+        <section id="home" class="page-section">
+            <div class="image-slider">
+                <img id="background-img" src="img/i6.png" alt="Image de fond du portfolio">
             </div>
+
+            <div class="hero-content">
+                <p class="greeting">Welcome!</p>
+                <h1>Ny Aro OLINJANAHARY</h1>
+                <h2>MARKETING & FINANCIAL OFFICER</h2>
+                <p class="bio">
+                    My name is Ny Aro, and I am looking for a junior position to further develop my skills.
+                    I am a dynamic, curious, and versatile student. Highly motivated to learn and grow in a professional environment.
+                </p>
+                <div class="cta-buttons">
+                    <a href="img/Ny Aro CV.pdf" download="Ny_Aro_OLINJANAHARY_CV.pdf" class="btn primary-btn">Download CV</a>
+                    <a href="#contact" class="btn secondary-btn" onclick="navigateSection(3); return false;">Contact Me</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="page-section">
+            <div class="placeholder-content">
+                <h2>About Us</h2>
+                <p>Ceci est la section "About Us". Vous pouvez y placer votre biographie détaillée, vos motivations, et votre parcours. En tant qu'étudiant en Marketing & Management, vous y détaillerez votre vision professionnelle.</p>
+            </div>
+        </section>
+
+        <section id="services" class="page-section">
+            <div class="placeholder-content">
+                <h2>Services</h2>
+                <p>Ceci est la section "Services". Vous pouvez y lister vos compétences clés : Digital Marketing, Relations Publiques, Organisation, etc. Utilisez ce domaine pour montrer ce que vous apportez à une entreprise.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="page-section">
+            <div class="placeholder-content">
+                <h2>Restons en Contact</h2>
+                <p class="contact-encouragement">
+                    Vous avez un projet, une opportunité ou simplement une question ? Envoyez-moi un message ! 
+                    Je suis toujours ouvert aux nouvelles collaborations et avide d'apprendre.
+                </p>
+
+                <div class="contact-form-container">
+                    <form action="#" method="POST"> 
+                        <div class="form-group">
+                            <input type="text" class="input-field" placeholder="Nom" required>
+                            <input type="text" class="input-field" placeholder="Prénom" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="input-field" placeholder="Email" required>
+                            <input type="number" class="input-field" placeholder="Âge" min="16" max="100">
+                        </div>
+                        
+                        <textarea class="textarea-field" placeholder="Votre message ou proposition..." required></textarea>
+                        
+                        <button type="submit" class="send-btn">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="slider-nav">
+        <button class="arrow-btn" id="prev-btn" aria-label="Page précédente"><i class="fas fa-chevron-left"></i></button>
+        <button class="arrow-btn" id="next-btn" aria-label="Page suivante"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <footer>
+        <div class="social-icons-footer">
+            <a href="http://www.instagram.com/ny.aro_?igsh=OXRxMnNoNGRR0OXF4" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/nyaro.olinjanahary" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/261342918767" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a> 
+            <a href="mailto:nyaro.o07@gmail.com" target="_blank" aria-label="Email"><i class="fas fa-envelope"></i></a> 
         </div>
-
-        <div class="slider-nav">
-            <button class="arrow-btn" id="prev-btn" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
-            <button class="arrow-btn" id="next-btn" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+        <div class="copyright-text">
+            &copy; <span id="current-year"></span> Ny Aro OLINJANAHARY. All rights reserved | Tous droits réservés.
         </div>
-    </main>
+    </footer>
 
-    <script src="script.js">document.addEventListener('DOMContentLoaded', function() {
-    // Liste des images à faire défiler
-    const images = [
-        "test2.png", // L'image du photographe (fichier fourni)
-        "Gemini_Generated_Image_4zjnth4zjnth4zjn.jpg" // Votre image en costume (fichier fourni)
-    ];
-
-    let currentImageIndex = 0;
-    const backgroundImg = document.getElementById('background-img');
-    const intervalTime = 3500; // 3.5 secondes
-
-    /**
-     * Change l'image de fond en utilisant une transition douce (fade out/fade in).
-     */
-    function changeImage() {
-        // 1. Fade out de l'image actuelle
-        backgroundImg.style.opacity = 0;
-
-        setTimeout(() => {
-            // 2. Changer la source de l'image après le fade out
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            backgroundImg.src = images[currentImageIndex];
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Données & Variables de Navigation ---
+            const sections = ['home', 'about', 'services', 'contact'];
+            const pageWrapper = document.getElementById('page-wrapper');
+            const navLinks = document.querySelectorAll('#nav-links a');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            let currentSectionIndex = 0;
             
-            // 3. Fade in de la nouvelle image
-            backgroundImg.style.opacity = 0.5; // Remettre l'opacité à 0.5 comme dans le CSS
-        }, 1000); // Attendre 1000ms (1s) pour le fade out
+            // --- Navigation par Flèche / Menu ---
 
-        // Redémarre le timer pour le prochain changement
-        clearTimeout(timer);
-        timer = setTimeout(changeImage, intervalTime);
-    }
-
-    // Initialisation du diaporama
-    backgroundImg.src = images[currentImageIndex];
-    let timer = setTimeout(changeImage, intervalTime);
-
-    // ********* Gestion des flèches (optionnel) *********
-
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
-
-    // Fonction pour naviguer manuellement (stop l'intervalle automatique)
-    function navigateImage(direction) {
-        // Arrêter le diaporama automatique
-        clearTimeout(timer);
-
-        // Fade out
-        backgroundImg.style.opacity = 0;
-
-        setTimeout(() => {
-            if (direction === 'next') {
-                currentImageIndex = (currentImageIndex + 1) % images.length;
-            } else if (direction === 'prev') {
-                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            /**
+             * Défile à la section spécifiée par son index.
+             * @param {number} index - Index de la section (0 à 3)
+             */
+            window.navigateSection = function(index) {
+                // S'assurer que l'index est dans les limites
+                if (index >= 0 && index < sections.length) {
+                    currentSectionIndex = index;
+                    const offset = -currentSectionIndex * 25; // Chaque section fait 25%
+                    pageWrapper.style.transform = `translateX(${offset}%)`;
+                    updateURLHash(sections[currentSectionIndex]);
+                    updateActiveLink();
+                }
             }
 
-            backgroundImg.src = images[currentImageIndex];
-            backgroundImg.style.opacity = 0.5; // Fade in
+            // Gestionnaires d'événements pour les flèches
+            if (prevBtn && nextBtn) {
+                prevBtn.addEventListener('click', () => {
+                    navigateSection(currentSectionIndex - 1);
+                });
 
-            // Redémarrer le diaporama après un court délai
-            timer = setTimeout(changeImage, intervalTime);
-        }, 300); // Délai plus court pour une navigation manuelle plus réactive
-    }
+                nextBtn.addEventListener('click', () => {
+                    navigateSection(currentSectionIndex + 1);
+                });
+            }
 
-    if (prevBtn && nextBtn) {
-        prevBtn.addEventListener('click', () => navigateImage('prev'));
-        nextBtn.addEventListener('click', () => navigateImage('next'));
-    }
-});</script>
+            // Gestionnaires d'événements pour les liens de navigation
+            navLinks.forEach((link, index) => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault(); 
+                    navigateSection(index);
+                });
+            });
+
+            /**
+             * Met à jour la classe 'active' sur les liens de navigation.
+             */
+            function updateActiveLink() {
+                navLinks.forEach(link => link.classList.remove('active'));
+                navLinks[currentSectionIndex].classList.add('active');
+            }
+
+            /**
+             * Met à jour le hash de l'URL sans déclencher de rechargement.
+             */
+            function updateURLHash(hash) {
+                history.pushState(null, null, `#${hash}`);
+            }
+
+            // --- Initialisation ---
+            
+            // Mise à jour de l'année du copyright
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Initialiser la page en fonction du hash de l'URL ou par défaut à Home
+            const initialHash = window.location.hash.substring(1);
+            const initialIndex = sections.indexOf(initialHash);
+            navigateSection(initialIndex > -1 ? initialIndex : 0);
+
+
+            // Fonction pour le menu hamburger (à développer si nécessaire)
+            window.toggleMenu = function() {
+                alert("Le menu de navigation mobile s'ouvrira ici !");
+            };
+        });
+    </script>
 </body>
 </html>
