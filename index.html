@@ -3,341 +3,377 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARAMMMM</title>
-    <link rel="shortcut icon" href="img/pdp111.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Ny Aro OLINJANAHARY - Portfolio Marketing</title>
+    <style>/* Définition des variables de couleurs */
+:root {
+    --primary-color: #C9A24D; /* La couleur d'accent */
+    --text-color: #ffffff;
+    --background-color: #000000;
+    --secondary-text-color: #aaaaaa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+/* --- En-tête (Header) --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.logo-z {
+    color: var(--primary-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    font-size: 14px;
+    opacity: 0.8;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+    opacity: 1;
+}
+
+.social-icons a {
+    margin-left: 15px;
+    font-size: 16px;
+    border: 1px solid #333;
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* --- Section Principale (Hero) --- */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 5%; /* Alignement du contenu à gauche */
+}
+
+/* Conteneur d'image pour le diaporama */
+.image-slider {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%; /* L'image prend 60% de la largeur */
+    height: 100%;
+    overflow: hidden;
+}
+
+#background-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5; /* Légère opacité pour améliorer la lisibilité du texte */
+    transition: opacity 1s ease-in-out;
+}
+
+/* Contenu du texte */
+.hero-content {
+    position: relative;
+    z-index: 5;
+    width: 40%; /* Le contenu prend 40% de la largeur */
+    padding: 100px 0; /* Ajout d'un padding pour un meilleur alignement vertical */
+}
+
+.greeting {
+    font-size: 16px;
+    color: var(--secondary-text-color);
+    margin-bottom: 5px;
+}
+
+.hero-content h1 {
+    font-size: 50px;
+    margin-bottom: 5px;
+}
+
+.hero-content h2 {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.bio {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--secondary-text-color);
+    max-width: 450px;
+    margin-bottom: 30px;
+}
+
+/* Boutons d'appel à l'action */
+.cta-buttons a {
+    padding: 12px 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: all 0.3s;
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    color: var(--background-color);
+}
+
+.primary-btn:hover {
+    background-color: #a8853e; /* Une couleur légèrement plus foncée */
+    border-color: #a8853e;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--text-color);
+    color: var(--background-color);
+}
+
+/* Navigation du Diaporama (Flèches) */
+.slider-nav {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    z-index: 10;
+}
+
+.arrow-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.arrow-btn:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* --- Adaptation Responsive (Minimum) --- */
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        padding-top: 50px;
+    }
     
-    <style>
-        /* Variables pour les couleurs */
-        :root {
-            --bg-dark: #121212;
-            --text-light: #ffffff;
-            --primary-orange: #ff6f00; /* La couleur orange dominante */
-            --primary-red: #ff0000; /* Nouvelle variable pour le dégradé */
-            --text-secondary: #999999;
-            --stats-bg: #222222;
-        }
+    nav {
+        margin-top: 20px;
+        order: 3; /* Déplacer la navigation vers le bas sur mobile */
+    }
 
-        /* Réinitialisation de base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: sans-serif; /* Remplacer par la police exacte si connue */
-        }
+    nav ul li {
+        margin: 0 10px;
+    }
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            min-height: 100vh;
-            padding: 0 5%; /* Marge sur les côtés pour centrer le contenu */
-        }
+    .social-icons {
+        margin-top: 15px;
+    }
 
-        /* --- Section Navigation (Header) --- */
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 150px 5% 50px;
+    }
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
+    .image-slider {
+        position: relative;
+        width: 100%;
+        height: 40vh; /* Réduire la hauteur de l'image sur mobile */
+    }
 
-        /* LOGO AVEC DÉGRADÉ */
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            /* Mise en place du dégradé */
-            background: linear-gradient(to right, var(--primary-red), var(--primary-orange));
-            -webkit-background-clip: text; /* Pour que le dégradé s'applique au texte */
-            -webkit-text-fill-color: transparent; /* Pour que le texte soit transparent et que le dégradé apparaisse */
-        }
+    .hero-content {
+        width: 100%;
+        padding: 40px 0 0;
+    }
 
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            margin-left: 30px;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
+    .slider-nav {
+        display: none; /* Cache les flèches sur les petits écrans */
+    }
 
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--primary-orange);
-        }
-
-        .hire-me-btn {
-            background-color: var(--primary-orange);
-            color: var(--text-light);
-            border: none;
-            padding: 10px 25px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s, transform 0.1s; /* Ajout de transform pour l'interactivité */
-        }
-
-        /* INTERACTIVITÉ BOUTONS */
-        .hire-me-btn:hover {
-            background-color: #e06200; /* Orange légèrement plus foncé */
-        }
-        .hire-me-btn:active {
-            transform: scale(0.98); /* Petit effet de pression */
-        }
-
-        /* --- Section Héro (Main) --- */
-
-        .hero-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            min-height: calc(100vh - 80px);
-            padding-bottom: 50px;
-        }
-
-        .hero-content {
-            max-width: 50%;
-        }
-
-        .greeting {
-            color: var(--text-secondary);
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-
-        .name {
-            font-size: 48px;
-            font-weight: 500;
-            margin-bottom: 10px;
-        }
-
-        .title {
-            color: var(--primary-orange);
-            font-size: 72px;
-            font-weight: bold;
-            margin-bottom: 40px;
-            line-height: 1.1;
-        }
-
-        /* Icônes Sociales */
-        .social-icons a {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-            height: 40px;
-            border: 1px solid var(--text-secondary);
-            border-radius: 50%;
-            color: var(--text-secondary);
-            font-size: 18px;
-            margin-right: 15px;
-            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-        }
-
-        .social-icons a:hover {
-            border-color: var(--primary-orange);
-            background-color: var(--primary-orange);
-            color: var(--text-light);
-        }
-
-        /* Boutons d'Action */
-        .actions {
-            margin-top: 40px;
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .actions .hire-me-btn.primary {
-            padding: 15px 40px;
-            font-size: 18px;
-        }
-
-        .download-cv-btn {
-            background: none;
-            color: var(--text-light);
-            border: 1px solid var(--text-light);
-            padding: 15px 40px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 18px;
-            transition: background-color 0.3s, border-color 0.3s, transform 0.1s;
-        }
-
-        /* INTERACTIVITÉ BOUTONS */
-        .download-cv-btn:hover {
-            border-color: var(--primary-orange);
-            color: var(--primary-orange);
-        }
-        .download-cv-btn:active {
-            transform: scale(0.98); /* Petit effet de pression */
-        }
-
-        /* Statistiques */
-        .stats-container {
-            background-color: var(--stats-bg); /* Fond pour le conteneur de stats */
-            padding: 20px;
-            border-radius: 10px;
-            display: flex;
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .stat-item {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-        }
-
-        .stat-number {
-            color: var(--primary-orange);
-            font-size: 36px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            color: var(--text-light);
-            font-size: 14px;
-            text-transform: uppercase;
-            font-weight: 300;
-        }
-
-
-        /* Image Héro AJUSTÉE */
-
-        .hero-image-container {
-            width: 45%;
-            display: flex;
-            justify-content: flex-end;
-            position: relative;
-            /* Assurez-vous que le conteneur peut gérer les débordements du cercle */
-            overflow: hidden; 
-            max-height: 500px; /* Limite la hauteur pour mieux contrôler l'image */
-            padding-right: 20px; /* Espace à droite pour l'effet de débordement */
-        }
-
-        .hero-image {
-            /* Ajustement de la taille de l'image et du cercle */
-            width: 400px; 
-            height: 480px; /* Légèrement plus haut pour une forme ovale/ronde verticale */
-            max-width: 100%;
-            display: block;
-            object-fit: cover;
-            object-position: top center; /* S'assurer que le visage est bien centré */
-
-            /* Créer la forme du rond */
-            border-radius: 50% / 60%; /* Utilisation de deux valeurs pour un cercle légèrement elliptique */
-            
-            filter: grayscale(100%) brightness(80%);
-            transform: rotate(2deg); 
-            border: 5px solid var(--stats-bg); /* Utilisation de la couleur de fond des stats pour le contour */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-
-            /* Positionnement précis pour aligner le bas de l'image sur le bas du conteneur */
-            position: absolute;
-            bottom: 0;
-            right: 20px;
-        }
-
-        /* Pour le cercle noir en arrière-plan */
-        .hero-image-container::before {
-            content: '';
-            position: absolute;
-            width: 400px; 
-            height: 480px; /* La même hauteur que l'image pour le rond */
-            
-            /* Positionnement du cercle derrière l'image */
-            bottom: 0;
-            right: 20px;
-            
-            background-color: #000000;
-            border-radius: 50% / 60%; /* Même forme que l'image */
-            z-index: -1;
-        }
-
-
-        /* --- Media Queries (pour la réactivité) --- */
-        /* (Le reste des media queries reste identique, non répété ici pour la concision) */
-    </style>
+    .cta-buttons a {
+        margin: 10px 10px 0 0;
+    }
+}</style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="logo">LOGO
+    <header>
+        <div class="logo">
+            <span class="logo-z">Z</span>OOMIN
         </div>
-        <nav class="nav-links">
-            <a href="#" class="active">Home</a>
-            <a href="#">Services</a>
-            <a href="#">About me</a>
-            <a href="#">Portfolio</a>
-            <a href="#">Contact me</a>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
-        <button class="hire-me-btn">Hire Me</button>
+        <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
     </header>
 
     <main class="hero-section">
+        <div class="image-slider">
+            <img id="background-img" src="img/i6.png" height="50px" width="50px" alt="Image de fond du portfolio">
+        </div>
+
         <div class="hero-content">
-            <p class="greeting">Hi I am</p>
-            <h1 class="name">Ny Aro</h1>
-            <h2 class="title">UI/UX designer</h2>
-
-            <div class="social-icons">
-                <a href="http://www.instagram.com/ny.aro_?igsh=OXRxMnNoNGRR0OXF4"target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-linkedin-in"target="_blank"></i></a>
-                <a href="https://facebook.com/nyaro.olinjanahary" target="_blank"><i class="fa-brands fa-facebook-f"></i></a> 
-                <a href="https://wa.me/261342918767" target="_blank"><i class="fa-brands fa-whatsapp"></i></a> </div>
-
-            <div class="actions">
-    <button class="hire-me-btn primary" id="hireMeBtn">Hire Me</button>
-    <a 
-        href="Ny Aro CV.pdf" 
-        download="Ny Aro CV.pdf" 
-        class="download-cv-btn"
-    >
-        Download CV
-    </a>
-</div>
-
-            <div class="stats-container">
-                <div class="stat-item">
-                    <span class="stat-number">5+</span>
-                    <span class="stat-label">Experiences</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">20+</span>
-                    <span class="stat-label">Project done</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">80+</span>
-                    <span class="stat-label">Happy Clients</span>
-                </div>
+            <p class="greeting">HELLO THERE!</p>
+            <h1>I'm Ny Aro **OLINJANAHARY**</h1>
+            <h2>**MARKETING & MANAGEMENT STUDENT**</h2>
+            <p class="bio">
+                My name is Ny Aro, and I am looking for a junior position to further develop my skills.
+                I am a dynamic, curious, and versatile student. Highly motivated to learn and grow in a professional environment.
+            </p>
+            <div class="cta-buttons">
+                <a href="Ny Aro CV.pdf" download="Ny_Aro_OLINJANAHARY_CV.pdf" class="btn primary-btn">Download CV</a>
+                <a href="#contact" class="btn secondary-btn">Contact Me</a>
             </div>
         </div>
 
-        
-
-        <div class="hero-image-container">
-            <img src="img/pdp111.png" alt="Mahmood Fazile - UI/UX designer" class="hero-image">
+        <div class="slider-nav">
+            <button class="arrow-btn" id="prev-btn" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+            <button class="arrow-btn" id="next-btn" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
         </div>
     </main>
 
-    <script>document.addEventListener('DOMContentLoaded', function() {
-    const hireMeBtnHeader = document.querySelector('.navbar .hire-me-btn');
-    const hireMeBtnPrimary = document.getElementById('hireMeBtn');
-    
+    <script src="script.js">document.addEventListener('DOMContentLoaded', function() {
+    // Liste des images à faire défiler
+    const images = [
+        "test2.png", // L'image du photographe (fichier fourni)
+        "Gemini_Generated_Image_4zjnth4zjnth4zjn.jpg" // Votre image en costume (fichier fourni)
+    ];
 
-    // Interactivité pour les liens de navigation
-    const navLinks = document.querySelectorAll('.nav-links a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            // e.preventDefault(); // Désactive la navigation par défaut si vous voulez du SPA
-            console.log(`Lien de navigation cliqué : ${this.textContent}`);
-            // Mettre à jour la classe 'active' (exemple simple)
-            navLinks.forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
-        });
-    });
+    let currentImageIndex = 0;
+    const backgroundImg = document.getElementById('background-img');
+    const intervalTime = 3500; // 3.5 secondes
+
+    /**
+     * Change l'image de fond en utilisant une transition douce (fade out/fade in).
+     */
+    function changeImage() {
+        // 1. Fade out de l'image actuelle
+        backgroundImg.style.opacity = 0;
+
+        setTimeout(() => {
+            // 2. Changer la source de l'image après le fade out
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            backgroundImg.src = images[currentImageIndex];
+            
+            // 3. Fade in de la nouvelle image
+            backgroundImg.style.opacity = 0.5; // Remettre l'opacité à 0.5 comme dans le CSS
+        }, 1000); // Attendre 1000ms (1s) pour le fade out
+
+        // Redémarre le timer pour le prochain changement
+        clearTimeout(timer);
+        timer = setTimeout(changeImage, intervalTime);
+    }
+
+    // Initialisation du diaporama
+    backgroundImg.src = images[currentImageIndex];
+    let timer = setTimeout(changeImage, intervalTime);
+
+    // ********* Gestion des flèches (optionnel) *********
+
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    // Fonction pour naviguer manuellement (stop l'intervalle automatique)
+    function navigateImage(direction) {
+        // Arrêter le diaporama automatique
+        clearTimeout(timer);
+
+        // Fade out
+        backgroundImg.style.opacity = 0;
+
+        setTimeout(() => {
+            if (direction === 'next') {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+            } else if (direction === 'prev') {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            }
+
+            backgroundImg.src = images[currentImageIndex];
+            backgroundImg.style.opacity = 0.5; // Fade in
+
+            // Redémarrer le diaporama après un court délai
+            timer = setTimeout(changeImage, intervalTime);
+        }, 300); // Délai plus court pour une navigation manuelle plus réactive
+    }
+
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => navigateImage('prev'));
+        nextBtn.addEventListener('click', () => navigateImage('next'));
+    }
 });</script>
 </body>
 </html>
