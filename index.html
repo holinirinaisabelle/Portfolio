@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Mahmood Fazile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Variables pour les couleurs */
+        :root {
+            --bg-dark: #121212;
+            --text-light: #ffffff;
+            --primary-orange: #ff6f00; /* La couleur orange dominante */
+            --primary-red: #ff0000; /* Nouvelle variable pour le dégradé */
+            --text-secondary: #999999;
+            --stats-bg: #222222;
+        }
+
+        /* Réinitialisation de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif; /* Remplacer par la police exacte si connue */
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            min-height: 100vh;
+            padding: 0 5%; /* Marge sur les côtés pour centrer le contenu */
+        }
+
+        /* --- Section Navigation (Header) --- */
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        /* LOGO AVEC DÉGRADÉ */
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            /* Mise en place du dégradé */
+            background: linear-gradient(to right, var(--primary-red), var(--primary-orange));
+            -webkit-background-clip: text; /* Pour que le dégradé s'applique au texte */
+            -webkit-text-fill-color: transparent; /* Pour que le texte soit transparent et que le dégradé apparaisse */
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-orange);
+        }
+
+        .hire-me-btn {
+            background-color: var(--primary-orange);
+            color: var(--text-light);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.1s; /* Ajout de transform pour l'interactivité */
+        }
+
+        /* INTERACTIVITÉ BOUTONS */
+        .hire-me-btn:hover {
+            background-color: #e06200; /* Orange légèrement plus foncé */
+        }
+        .hire-me-btn:active {
+            transform: scale(0.98); /* Petit effet de pression */
+        }
+
+        /* --- Section Héro (Main) --- */
+
+        .hero-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+            padding-bottom: 50px;
+        }
+
+        .hero-content {
+            max-width: 50%;
+        }
+
+        .greeting {
+            color: var(--text-secondary);
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .name {
+            font-size: 48px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            color: var(--primary-orange);
+            font-size: 72px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            line-height: 1.1;
+        }
+
+        /* Icônes Sociales */
+        .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--text-secondary);
+            border-radius: 50%;
+            color: var(--text-secondary);
+            font-size: 18px;
+            margin-right: 15px;
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        }
+
+        .social-icons a:hover {
+            border-color: var(--primary-orange);
+            background-color: var(--primary-orange);
+            color: var(--text-light);
+        }
+
+        /* Boutons d'Action */
+        .actions {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .actions .hire-me-btn.primary {
+            padding: 15px 40px;
+            font-size: 18px;
+        }
+
+        .download-cv-btn {
+            background: none;
+            color: var(--text-light);
+            border: 1px solid var(--text-light);
+            padding: 15px 40px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 18px;
+            transition: background-color 0.3s, border-color 0.3s, transform 0.1s;
+        }
+
+        /* INTERACTIVITÉ BOUTONS */
+        .download-cv-btn:hover {
+            border-color: var(--primary-orange);
+            color: var(--primary-orange);
+        }
+        .download-cv-btn:active {
+            transform: scale(0.98); /* Petit effet de pression */
+        }
+
+        /* Statistiques */
+        .stats-container {
+            background-color: var(--stats-bg); /* Fond pour le conteneur de stats */
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .stat-number {
+            color: var(--primary-orange);
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+
+        /* Image Héro AJUSTÉE */
+
+        .hero-image-container {
+            width: 45%;
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+            /* Assurez-vous que le conteneur peut gérer les débordements du cercle */
+            overflow: hidden; 
+            max-height: 500px; /* Limite la hauteur pour mieux contrôler l'image */
+            padding-right: 20px; /* Espace à droite pour l'effet de débordement */
+        }
+
+        .hero-image {
+            /* Ajustement de la taille de l'image et du cercle */
+            width: 400px; 
+            height: 480px; /* Légèrement plus haut pour une forme ovale/ronde verticale */
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: top center; /* S'assurer que le visage est bien centré */
+
+            /* Créer la forme du rond */
+            border-radius: 50% / 60%; /* Utilisation de deux valeurs pour un cercle légèrement elliptique */
+            
+            filter: grayscale(100%) brightness(80%);
+            transform: rotate(2deg); 
+            border: 5px solid var(--stats-bg); /* Utilisation de la couleur de fond des stats pour le contour */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+
+            /* Positionnement précis pour aligner le bas de l'image sur le bas du conteneur */
+            position: absolute;
+            bottom: 0;
+            right: 20px;
+        }
+
+        /* Pour le cercle noir en arrière-plan */
+        .hero-image-container::before {
+            content: '';
+            position: absolute;
+            width: 400px; 
+            height: 480px; /* La même hauteur que l'image pour le rond */
+            
+            /* Positionnement du cercle derrière l'image */
+            bottom: 0;
+            right: 20px;
+            
+            background-color: #000000;
+            border-radius: 50% / 60%; /* Même forme que l'image */
+            z-index: -1;
+        }
+
+
+        /* --- Media Queries (pour la réactivité) --- */
+        /* (Le reste des media queries reste identique, non répété ici pour la concision) */
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">LOGO</div>
+        <nav class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="#">Services</a>
+            <a href="#">About me</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Contact me</a>
+        </nav>
+        <button class="hire-me-btn">Hire Me</button>
+    </header>
+
+    <main class="hero-section">
+        <div class="hero-content">
+            <p class="greeting">Hi I am</p>
+            <h1 class="name">Ny Aro</h1>
+            <h2 class="title">UI/UX designer</h2>
+
+            <div class="social-icons">
+                <a href="http://www.instagram.com/ny.aro_?igsh=OXRxMnNoNGRR0OXF4"target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"target="_blank"></i></a>
+                <a href="https://facebook.com/nyaro.olinjanahary" target="_blank"><i class="fa-brands fa-facebook-f"></i></a> 
+                <a href="https://wa.me/261342918767" target="_blank"><i class="fa-brands fa-whatsapp"></i></a> </div>
+
+            <div class="actions">
+    <button class="hire-me-btn primary" id="hireMeBtn">Hire Me</button>
+    <a 
+        href="Ny Aro CV.pdf" 
+        download="Ny Aro CV.pdf" 
+        class="download-cv-btn"
+    >
+        Download CV
+    </a>
+</div>
+
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Experiences</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">20+</span>
+                    <span class="stat-label">Project done</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">80+</span>
+                    <span class="stat-label">Happy Clients</span>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="hero-image-container">
+            <img src="img/pdp111.png" alt="Mahmood Fazile - UI/UX designer" class="hero-image">
+        </div>
+    </main>
+
+    <script>document.addEventListener('DOMContentLoaded', function() {
+    const hireMeBtnHeader = document.querySelector('.navbar .hire-me-btn');
+    const hireMeBtnPrimary = document.getElementById('hireMeBtn');
+    
+
+    // Interactivité pour les liens de navigation
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // e.preventDefault(); // Désactive la navigation par défaut si vous voulez du SPA
+            console.log(`Lien de navigation cliqué : ${this.textContent}`);
+            // Mettre à jour la classe 'active' (exemple simple)
+            navLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+});</script>
+</body>
+</html>

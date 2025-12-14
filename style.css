@@ -1,0 +1,270 @@
+/* Variables pour les couleurs */
+:root {
+    --bg-dark: #121212;
+    --text-light: #ffffff;
+    --primary-orange: #ff6f00; /* La couleur orange dominante */
+    --text-secondary: #999999;
+}
+
+/* Réinitialisation de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif; /* Remplacer par la police exacte si connue */
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    min-height: 100vh;
+    padding: 0 5%; /* Marge sur les côtés pour centrer le contenu */
+}
+
+/* --- Section Navigation (Header) --- */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    color: var(--primary-orange);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary-orange);
+}
+
+.hire-me-btn {
+    background-color: var(--primary-orange);
+    color: var(--text-light);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.hire-me-btn:hover {
+    background-color: #e06200; /* Orange légèrement plus foncé */
+}
+
+/* --- Section Héro (Main) --- */
+
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: calc(100vh - 80px); /* Ajuster selon la hauteur du header */
+    padding-bottom: 50px; /* Espace en bas */
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.greeting {
+    color: var(--text-secondary);
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.name {
+    font-size: 48px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.title {
+    color: var(--primary-orange);
+    font-size: 72px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    line-height: 1.1;
+}
+
+/* Icônes Sociales */
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--text-secondary);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    font-size: 18px;
+    margin-right: 15px;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+    border-color: var(--primary-orange);
+    background-color: var(--primary-orange);
+    color: var(--text-light);
+}
+
+/* Boutons d'Action */
+.actions {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.actions .hire-me-btn.primary {
+    /* Le bouton "Hire Me" dans la section Hero */
+    padding: 15px 40px;
+    font-size: 18px;
+}
+
+.download-cv-btn {
+    background: none;
+    color: var(--text-light);
+    border: 1px solid var(--text-light);
+    padding: 15px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.download-cv-btn:hover {
+    border-color: var(--primary-orange);
+    color: var(--primary-orange);
+}
+
+/* Statistiques */
+.stats-container {
+    background-color: #222222; /* Fond pour le conteneur de stats */
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.stat-number {
+    color: var(--primary-orange);
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: var(--text-light);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+
+/* Image Héro */
+
+.hero-image-container {
+    width: 45%; /* Donne un peu d'espace */
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 400px; /* Taille maximale pour l'image */
+    height: auto;
+    display: block;
+    object-fit: cover;
+    /* Créer la forme de cercle et l'effet sombre */
+    border-radius: 50%;
+    filter: grayscale(100%) brightness(80%); /* Simuler l'effet noir et blanc / sombre */
+    transform: rotate(2deg); /* Petite rotation subtile comme dans l'image */
+    border: 5px solid #222222; /* Cercle gris foncé autour de l'image */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Pour le cercle noir en arrière-plan */
+.hero-image-container::before {
+    content: '';
+    position: absolute;
+    width: 400px; /* Doit être la même taille que l'image */
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000000; /* Fond noir derrière l'image */
+    border-radius: 50%;
+    z-index: -1;
+}
+
+/* Vous pouvez ajuster le positionnement de l'image et du cercle avec top/left/transform */
+
+/* --- Media Queries (pour la réactivité) --- */
+
+@media (max-width: 1024px) {
+    .title {
+        font-size: 56px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .nav-links {
+        display: none; /* Cache les liens de nav sur mobile pour simplifier */
+    }
+
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 50px;
+        min-height: auto;
+    }
+
+    .hero-content, .hero-image-container {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .hero-image-container {
+        order: -1; /* Place l'image en haut sur mobile */
+        margin-bottom: 40px;
+        justify-content: center;
+    }
+
+    .title {
+        font-size: 48px;
+    }
+
+    .actions {
+        justify-content: center;
+    }
+
+    .stats-container {
+        justify-content: space-around;
+        gap: 20px;
+    }
+}
