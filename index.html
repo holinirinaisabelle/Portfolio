@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ny Aro-Portfolio</title>
+    <title data-i18n="page_title">Ny Aro-Portfolio</title>
     <link rel="shortcut icon" href="img/FINAL LOGO.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
@@ -24,7 +24,8 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Fix pour toutes les langues, y compris l'arabe */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             color: var(--text-color);
             background-color: var(--background-color);
             overflow: hidden; /* Cache les barres de défilement pour l'effet Full Page */
@@ -40,7 +41,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 5%; /* Padding de 5% pour aligner le contenu */
+            padding: 25px 5%; 
             position: fixed;
             top: 0;
             left: 0;
@@ -52,7 +53,7 @@
             font-size: 26px;
             font-weight: 700;
             letter-spacing: 2px;
-            margin-left: 0; /* Modification: Suppression de la marge gauche supplémentaire pour aligner le logo */
+            margin-left: 0; 
         }
 
         .logo-z {
@@ -73,7 +74,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             opacity: 0.9;
-            transition: color 0.3s, border-bottom 0.3s; /* Ajout transition pour le trait */
+            transition: color 0.3s, border-bottom 0.3s;
         }
 
         nav ul li a:hover {
@@ -81,10 +82,10 @@
             opacity: 1;
         }
         
-        nav ul li a.active { /* Modification: Style interactif amélioré */
+        nav ul li a.active { 
             color: var(--primary-color);
             opacity: 1;
-            border-bottom: 2px solid var(--primary-color); /* Ajout d'un trait jaune sous le lien actif */
+            border-bottom: 2px solid var(--primary-color);
             padding-bottom: 3px;
         }
         
@@ -93,13 +94,36 @@
             align-items: center;
         }
 
+        /* --- STYLES AMÉLIORÉS DU BOUTON PARAMÈTRE (HAMBURGER) --- */
         .hamburger-menu {
             margin-left: 25px;
-            font-size: 20px;
-            color: var(--primary-color);
+            font-size: 22px; 
             cursor: pointer;
-            transition: opacity 0.3s;
+            
+            /* Nouveau look du bouton */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px; 
+            height: 50px;
+            border-radius: 50%;
+            
+            /* Look par défaut */
+            background-color: transparent; 
+            border: 2px solid var(--primary-color); /* Bordure or */
+            color: var(--primary-color); /* Couleur de l'icône */
+            box-shadow: 0 0 5px rgba(201, 162, 77, 0.3); /* Légère lueur */
+            
+            transition: all 0.3s ease-in-out, box-shadow 0.4s;
         }
+
+        .hamburger-menu:hover {
+            background-color: var(--primary-color);
+            color: var(--background-color); /* L'icône devient noire/sombre */
+            box-shadow: 0 0 20px rgba(201, 162, 77, 1); /* Forte lueur or au survol */
+            transform: scale(1.05);
+        }
+        /* --- FIN DES STYLES AMÉLIORÉS --- */
         
         /* Cacher les icônes sociales du header */
         .header-actions .social-icons {
@@ -122,18 +146,30 @@
             flex-shrink: 0;
             display: flex; 
             align-items: center;
-            padding-left: 5%; /* Modification: Marge à gauche ajustée à 5% pour aligner avec le header */
+            padding-left: 5%; 
         }
 
-        /* Conteneur d'image pour le diaporama */
-        .image-slider {
+        /* Conteneur d'image pour le diaporama (Home) */
+        .image-slider,
+        .contact-image-container { /* Styles unifiés pour Home et Contact Image */
             position: absolute;
             top: 0;
             right: 0;
             width: 55%; 
             height: 100%;
             overflow: hidden;
+            border-radius: 0; 
+            box-shadow: none; 
         }
+        
+        /* Assurez-vous que l'image de contact n'a pas de styles contradictoires de l'ancienne version */
+        .contact-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7; /* Match l'opacité de l'image Home */
+        }
+
 
         #background-img {
             width: 100%;
@@ -143,13 +179,14 @@
             transition: opacity 1s ease-in-out;
         }
 
-        /* Contenu du texte */
-        .hero-content {
-          margin-left: -200px;
+        /* Contenu du texte (Home) */
+        .hero-content, 
+        .placeholder-content.contact-content-left { /* Ajout du style pour contact */
+            position: relative;
+            margin-left: -200px;
             z-index: 5;
             width: var(--hero-content-width); 
             padding: 100px 0;
-
         }
 
         .greeting {
@@ -182,7 +219,7 @@
             margin-bottom: 35px;
         }
 
-        /* Boutons d'appel à l'action - Pas de changement */
+        /* Boutons d'appel à l'action */
         .cta-buttons a {
             padding: 14px 35px;
             font-weight: bold;
@@ -219,7 +256,7 @@
             border-color: var(--text-color);
         }
 
-        /* Navigation des Flèches - Pas de changement */
+        /* Navigation des Flèches */
         .slider-nav {
             position: fixed; 
             bottom: 50px;
@@ -264,9 +301,9 @@
             line-height: 1.6;
         }
         
-        /* --- Contact Form Specific Styles (NOUVEAU) --- */
+        /* --- Contact Form Styles --- */
+
         .contact-form-container {
-            max-width: 500px;
             width: 100%;
             margin-top: 20px; 
         }
@@ -292,8 +329,8 @@
         .textarea-field {
             width: 100%;
             padding: 15px;
-            background-color: rgba(255, 255, 255, 0.05); /* Fond très léger */
-            border: 1px solid rgba(201, 162, 77, 0.3); /* Bordure légère couleur primary */
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(201, 162, 77, 0.3);
             color: var(--text-color);
             border-radius: 8px;
             font-size: 15px;
@@ -304,7 +341,7 @@
         .textarea-field:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 10px rgba(201, 162, 77, 0.5); /* Effet chaleureux/interactif */
+            box-shadow: 0 0 10px rgba(201, 162, 77, 0.5);
         }
 
         .textarea-field {
@@ -312,7 +349,6 @@
             min-height: 150px;
         }
 
-        /* Style pour le bouton d'envoi */
         .send-btn {
             padding: 14px 35px;
             font-weight: bold;
@@ -326,7 +362,7 @@
             color: var(--background-color);
             cursor: pointer;
             margin-top: 10px;
-            align-self: flex-start; /* Aligner le bouton à gauche (avec le reste du contenu) */
+            align-self: flex-start;
         }
 
         .send-btn:hover {
@@ -335,24 +371,23 @@
             box-shadow: 0 0 20px rgba(201, 162, 77, 0.8); 
             transform: translateY(-2px);
         }
-        /* Adaptation des placeholders pour qu'ils soient lisibles */
+        
         ::placeholder { 
             color: var(--secondary-text-color);
             opacity: 0.7; 
         }
 
-        /* --- Pied de Page (Footer) et Icônes Sociales (Modification) --- */
+        /* --- Pied de Page (Footer) --- */
         footer {
             position: fixed; 
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 15px 5%; /* Ajustement du padding pour aligner avec le contenu */
+            padding: 15px 5%;
             background-color: transparent; 
             z-index: 100;
-            
-            display: flex; /* Utilisation de Flexbox */
-            justify-content: space-between; /* Pour séparer les icônes du copyright */
+            display: flex;
+            justify-content: space-between;
             align-items: center;
         }
         
@@ -379,9 +414,201 @@
         .copyright-text {
             font-size: 12px;
             color: var(--secondary-text-color);
-            margin-right: 450px;
+            margin-right: 0; 
         }
 
+        /* --- Menu de Langue & Drapeaux --- */
+        .language-menu {
+            position: fixed;
+            top: 0;
+            right: -300px; 
+            width: 250px;
+            height: 100vh;
+            background-color: rgba(10, 10, 10, 0.95);
+            z-index: 200;
+            padding: 80px 20px 20px;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+            transition: right 0.4s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(5px);
+        }
+
+        .language-menu.active {
+            right: 0;
+        }
+
+        .language-menu h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        .language-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .language-menu ul li a {
+            display: flex; /* Utiliser flex pour aligner le drapeau et le texte */
+            align-items: center;
+            padding: 12px 0;
+            color: var(--text-color);
+            font-size: 16px;
+            transition: color 0.2s, padding-left 0.2s;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .language-menu ul li:last-child a {
+            border-bottom: none;
+        }
+
+        .language-menu ul li a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .close-menu-btn {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 24px;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        .flag-emoji {
+            margin-right: 10px;
+            font-size: 1.2em;
+            line-height: 1; /* Meilleur alignement vertical pour l'emoji */
+        }
+
+        /* --- RESPONSIVENESS (Mobile/Tablet) --- */
+
+        @media (max-width: 1024px) {
+            
+            .page-section {
+                padding-left: 5%;
+            }
+            .hero-content {
+                width: 50%;
+                margin-left: 0; 
+            }
+            
+            /* Ajustement pour le contenu de contact sur tablette (quand l'image n'est pas complètement cachée) */
+            .placeholder-content.contact-content-left {
+                margin-left: 0; /* Retire l'offset pour ne pas déborder */
+                max-width: 100%;
+                width: 80%; /* Utilise une largeur plus large sur tablette */
+                text-align: left;
+            }
+
+            .image-slider, .contact-image-container {
+                width: 45%;
+            }
+            
+            /* Assurez-vous que le bouton est centré si le texte devient centré */
+            #contact .contact-form-container form {
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Tablet et Mobile */
+            header {
+                padding: 20px 5%;
+            }
+            
+            nav {
+                display: none; 
+            }
+
+            .page-section {
+                padding-left: 10%; 
+                padding-right: 10%;
+                justify-content: center; 
+            }
+            
+            .image-slider, .contact-image-container { /* Cache les grandes images de fond */
+                display: none; 
+            }
+
+            .hero-content {
+                width: 100%; 
+                max-width: 90%;
+                padding: 0;
+                text-align: center;
+                margin-left: 0; /* Annule l'offset */
+            }
+            
+            .placeholder-content.contact-content-left {
+                width: 100%;
+                text-align: center;
+                padding: 0;
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .hero-content h2 {
+                font-size: 20px;
+            }
+            
+            .bio {
+                text-align: center;
+                max-width: none;
+            }
+            
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+
+            .cta-buttons a {
+                margin-right: 0;
+                width: 100%; 
+            }
+            
+            /* Contenu générique */
+            .placeholder-content {
+                text-align: center;
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            .placeholder-content h2 {
+                font-size: 30px;
+            }
+
+            /* Contact Section Form */
+            .form-group {
+                flex-direction: column; 
+                gap: 10px;
+            }
+            
+            /* Footer/Navigation */
+            .slider-nav {
+                right: 20px;
+                bottom: 20px;
+            }
+            
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .copyright-text {
+                margin-right: 0; /* Ajustement du texte de droit d'auteur */
+            }
+            
+            .send-btn {
+                 align-self: center; /* Centrer le bouton d'envoi */
+            }
+        }
     </style>
 </head>
 <body>
@@ -392,10 +619,10 @@
         
         <nav>
             <ul id="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" class="active" data-i18n="home_link">Accueil</a></li>
+                <li><a href="#about" data-i18n="about_link">À Propos</a></li>
+                <li><a href="#services" data-i18n="services_link">Services</a></li>
+                <li><a href="#contact" data-i18n="contact_link">Contact</a></li>
             </ul>
         </nav>
         
@@ -414,38 +641,42 @@
             </div>
 
             <div class="hero-content">
-                <p class="greeting">Welcome!</p>
+                <p class="greeting" data-i18n="home_greeting">Bienvenue !</p>
                 <h1>Ny Aro OLINJANAHARY</h1>
-                <h2>MARKETING & FINANCIAL OFFICER</h2>
-                <p class="bio">
-                    My name is Ny Aro, and I am looking for a junior position to further develop my skills.
-                    I am a dynamic, curious, and versatile student. Highly motivated to learn and grow in a professional environment.
+                <h2 data-i18n="home_subtitle">MARKETING & FINANCIAL OFFICER</h2>
+                <p class="bio" data-i18n="home_bio">
+                    Je m'appelle Ny Aro, et je suis à la recherche d'un poste junior pour développer davantage mes compétences.
+                    Je suis un étudiant dynamique, curieux et polyvalent. Très motivé pour apprendre et grandir dans un environnement professionnel.
                 </p>
                 <div class="cta-buttons">
-                    <a href="img/Ny Aro CV.pdf" download="Ny_Aro_OLINJANAHARY_CV.pdf" class="btn primary-btn">Download CV</a>
-                    <a href="#contact" class="btn secondary-btn" onclick="navigateSection(3); return false;">Contact Me</a>
+                    <a href="img/Ny Aro CV.pdf" download="Ny_Aro_OLINJANAHARY_CV.pdf" class="btn primary-btn" data-i18n="home_cv_btn">Télécharger CV</a>
+                    <a href="#contact" class="btn secondary-btn" onclick="navigateSection(3); return false;" data-i18n="home_contact_btn">Me Contacter</a>
                 </div>
             </div>
         </section>
 
         <section id="about" class="page-section">
             <div class="placeholder-content">
-                <h2>About Us</h2>
-                <p>Ceci est la section "About Us". Vous pouvez y placer votre biographie détaillée, vos motivations, et votre parcours. En tant qu'étudiant en Marketing & Management, vous y détaillerez votre vision professionnelle.</p>
+                <h2 data-i18n="about_title">À Propos de Moi</h2>
+                <p data-i18n="about_text">Ceci est la section "À Propos". Vous pouvez y placer votre biographie détaillée, vos motivations, et votre parcours. En tant qu'étudiant en Marketing & Management, vous y détaillerez votre vision professionnelle.</p>
             </div>
         </section>
 
         <section id="services" class="page-section">
             <div class="placeholder-content">
-                <h2>Services</h2>
-                <p>Ceci est la section "Services". Vous pouvez y lister vos compétences clés : Digital Marketing, Relations Publiques, Organisation, etc. Utilisez ce domaine pour montrer ce que vous apportez à une entreprise.</p>
+                <h2 data-i18n="services_title">Services</h2>
+                <p data-i18n="services_text">Ceci est la section "Services". Vous pouvez y lister vos compétences clés : Digital Marketing, Relations Publiques, Organisation, etc. Utilisez ce domaine pour montrer ce que vous apportez à une entreprise.</p>
             </div>
         </section>
 
         <section id="contact" class="page-section">
-            <div class="placeholder-content">
-                <h2>Restons en Contact</h2>
-                <p class="contact-encouragement">
+            <div class="contact-image-container">
+                <img src="img/i7.png" alt="Photo de profil de Ny Aro">
+            </div>
+            
+            <div class="placeholder-content contact-content-left">
+                <h2 data-i18n="contact_title">Restons en Contact</h2>
+                <p class="contact-encouragement" data-i18n="contact_encouragement">
                     Vous avez un projet, une opportunité ou simplement une question ? Envoyez-moi un message ! 
                     Je suis toujours ouvert aux nouvelles collaborations et avide d'apprendre.
                 </p>
@@ -453,21 +684,34 @@
                 <div class="contact-form-container">
                     <form action="#" method="POST"> 
                         <div class="form-group">
-                            <input type="text" class="input-field" placeholder="Nom" required>
-                            <input type="text" class="input-field" placeholder="Prénom" required>
+                            <input type="text" class="input-field" data-i18n-placeholder="contact_name_placeholder" placeholder="Nom" required>
+                            <input type="text" class="input-field" data-i18n-placeholder="contact_firstname_placeholder" placeholder="Prénom" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="input-field" placeholder="Email" required>
-                            <input type="number" class="input-field" placeholder="Âge" min="16" max="100">
+                            <input type="email" class="input-field" data-i18n-placeholder="contact_email_placeholder" placeholder="Email" required>
+                            <input type="number" class="input-field" data-i18n-placeholder="contact_age_placeholder" placeholder="Âge" min="16" max="100">
                         </div>
                         
-                        <textarea class="textarea-field" placeholder="Votre message ou proposition..." required></textarea>
+                        <textarea class="textarea-field" data-i18n-placeholder="contact_message_placeholder" placeholder="Votre message ou proposition..." required></textarea>
                         
-                        <button type="submit" class="send-btn">Envoyer</button>
+                        <button type="submit" class="send-btn" data-i18n="contact_send_btn">Envoyer</button>
                     </form>
                 </div>
             </div>
         </section>
+    </div>
+
+    <div class="language-menu" id="language-menu">
+        <i class="fas fa-times close-menu-btn" onclick="toggleMenu()"></i>
+        <h3 data-i18n="lang_select_title">Sélectionner Langue</h3>
+        <ul>
+            <li><a href="#" data-lang="mg" onclick="changeLanguage('mg'); return false;"><span class="flag-emoji">🇲🇬</span> <span data-i18n="lang_mg">Malagasy</span></a></li>
+            <li><a href="#" data-lang="fr" onclick="changeLanguage('fr'); return false;"><span class="flag-emoji">🇫🇷</span> <span data-i18n="lang_fr">Français</span></a></li>
+            <li><a href="#" data-lang="en" onclick="changeLanguage('en'); return false;"><span class="flag-emoji">🇬🇧</span> <span data-i18n="lang_en">Anglais</span></a></li>
+            <li><a href="#" data-lang="zh" onclick="changeLanguage('zh'); return false;"><span class="flag-emoji">🇨🇳</span> <span data-i18n="lang_zh">Chinois</span></a></li>
+            <li><a href="#" data-lang="ar" onclick="changeLanguage('ar'); return false;"><span class="flag-emoji">🇸🇦</span> <span data-i18n="lang_ar">Arabe</span></a></li>
+            <li><a href="#" data-lang="de" onclick="changeLanguage('de'); return false;"><span class="flag-emoji">🇩🇪</span> <span data-i18n="lang_de">Allemand</span></a></li>
+        </ul>
     </div>
 
     <div class="slider-nav">
@@ -483,11 +727,157 @@
             <a href="mailto:nyaro.o07@gmail.com" target="_blank" aria-label="Email"><i class="fas fa-envelope"></i></a> 
         </div>
         <div class="copyright-text">
-            &copy; <span id="current-year"></span> Ny Aro OLINJANAHARY. All rights reserved | Tous droits réservés.
+            &copy; <span id="current-year"></span> Ny Aro OLINJANAHARY. <span data-i18n="footer_rights">Tous droits réservés.</span>
         </div>
     </footer>
 
     <script>
+        // Déclaration des traductions pour le changement de langue
+        const translations = {
+            fr: {
+                page_title: 'Ny Aro-Portfolio',
+                home_link: 'Accueil', // CORRIGÉ
+                about_link: 'À Propos', // CORRIGÉ
+                services_link: 'Services',
+                contact_link: 'Contact',
+                lang_select_title: 'Sélectionner Langue',
+                lang_mg: 'Malagasy',
+                lang_fr: 'Français',
+                lang_en: 'Anglais',
+                lang_zh: 'Chinois',
+                lang_ar: 'Arabe',
+                lang_de: 'Allemand',
+                home_greeting: 'Bienvenue !',
+                home_subtitle: 'MARKETING & FINANCIAL OFFICER',
+                home_bio: 'Je m\'appelle Ny Aro, et je suis à la recherche d\'un poste junior pour développer davantage mes compétences. Je suis un étudiant dynamique, curieux et polyvalent. Très motivé pour apprendre et grandir dans un environnement professionnel.',
+                home_cv_btn: 'Télécharger CV',
+                home_contact_btn: 'Me Contacter',
+                about_title: 'À Propos de Moi',
+                about_text: 'Ceci est la section "À Propos". Vous pouvez y placer votre biographie détaillée, vos motivations, et votre parcours. En tant qu\'étudiant en Marketing & Management, vous y détaillerez votre vision professionnelle.',
+                services_title: 'Services',
+                services_text: 'Ceci est la section "Services". Vous pouvez y lister vos compétences clés : Digital Marketing, Relations Publiques, Organisation, etc. Utilisez ce domaine pour montrer ce que vous apportez à une entreprise.',
+                contact_title: 'Restons en Contact',
+                contact_encouragement: 'Vous avez un projet, une opportunité ou simplement une question ? Envoyez-moi un message ! Je suis toujours ouvert aux nouvelles collaborations et avide d\'apprendre.',
+                contact_name_placeholder: 'Nom',
+                contact_firstname_placeholder: 'Prénom',
+                contact_email_placeholder: 'Email',
+                contact_age_placeholder: 'Âge',
+                contact_message_placeholder: 'Votre message ou proposition...',
+                contact_send_btn: 'Envoyer',
+                footer_rights: 'Tous droits réservés.',
+            },
+            en: {
+                page_title: 'Ny Aro-Portfolio',
+                home_link: 'Home',
+                about_link: 'About',
+                services_link: 'Services',
+                contact_link: 'Contact',
+                lang_select_title: 'Select Language',
+                lang_mg: 'Malagasy',
+                lang_fr: 'French',
+                lang_en: 'English',
+                lang_zh: 'Chinese',
+                lang_ar: 'Arabic',
+                lang_de: 'German',
+                home_greeting: 'Welcome!',
+                home_subtitle: 'MARKETING & FINANCIAL OFFICER',
+                home_bio: 'My name is Ny Aro, and I am looking for a junior position to further develop my skills. I am a dynamic, curious, and versatile student. Highly motivated to learn and grow in a professional environment.',
+                home_cv_btn: 'Download CV',
+                home_contact_btn: 'Contact Me',
+                about_title: 'About Me',
+                about_text: 'This is the "About" section. You can place your detailed biography, your motivations, and your journey here. As a Marketing & Management student, you will detail your professional vision here.',
+                services_title: 'Services',
+                services_text: 'This is the "Services" section. You can list your key skills: Digital Marketing, Public Relations, Organization, etc. Use this area to show what you bring to a company.',
+                contact_title: 'Get in Touch',
+                contact_encouragement: 'Do you have a project, an opportunity, or just a question? Send me a message! I am always open to new collaborations and eager to learn.',
+                contact_name_placeholder: 'Last Name',
+                contact_firstname_placeholder: 'First Name',
+                contact_email_placeholder: 'Email',
+                contact_age_placeholder: 'Age',
+                contact_message_placeholder: 'Your message or proposal...',
+                contact_send_btn: 'Send',
+                footer_rights: 'All rights reserved.',
+            },
+            de: {
+                page_title: 'Ny Aro-Portfolio',
+                home_link: 'Startseite',
+                about_link: 'Über Mich',
+                services_link: 'Leistungen',
+                contact_link: 'Kontakt',
+                lang_select_title: 'Sprache Wählen',
+                lang_mg: 'Madagassisch',
+                lang_fr: 'Französisch',
+                lang_en: 'Englisch',
+                lang_zh: 'Chinois',
+                lang_ar: 'Arabisch',
+                lang_de: 'Deutsch',
+                home_greeting: 'Willkommen!',
+                home_subtitle: 'MARKETING & FINANCIAL OFFICER',
+                home_bio: 'Mein Name ist Ny Aro, und ich suche eine Junior-Position, um meine Fähigkeiten weiterzuentwickeln. Ich bin ein dynamischer, neugieriger und vielseitiger Student. Hochmotiviert zu lernen und in einem professionellen Umfeld zu wachsen.',
+                home_cv_btn: 'Lebenslauf Herunterladen',
+                home_contact_btn: 'Kontaktieren Sie Mich',
+                about_title: 'Über Mich',
+                about_text: 'Dies ist der Abschnitt "Über Mich". Hier können Sie Ihre detaillierte Biografie, Ihre Motivationen und Ihren Werdegang präsentieren. Als Student für Marketing & Management beschreiben Sie hier Ihre berufliche Vision.',
+                services_title: 'Leistungen',
+                services_text: 'Dies ist der Abschnitt "Leistungen". Hier können Sie Ihre Schlüsselkompetenzen auflisten: Digitales Marketing, Öffentlichkeitsarbeit, Organisation usw. Nutzen Sie diesen Bereich, um zu zeigen, was Sie einem Unternehmen bieten können.',
+                contact_title: 'In Kontakt Bleiben',
+                contact_encouragement: 'Haben Sie ein Projekt, eine Gelegenheit oder einfach nur eine Frage? Senden Sie mir eine Nachricht! Ich bin immer offen für neue Zusammenarbeiten und lernbegierig.',
+                contact_name_placeholder: 'Nachname',
+                contact_firstname_placeholder: 'Vorname',
+                contact_email_placeholder: 'E-Mail',
+                contact_age_placeholder: 'Alter',
+                contact_message_placeholder: 'Ihre Nachricht oder Ihr Vorschlag...',
+                contact_send_btn: 'Senden',
+                footer_rights: 'Alle Rechte vorbehalten.',
+            },
+            // Langues supplémentaires avec traduction de base pour l'exemple
+            mg: {
+                 page_title: 'Ny Aro-Portfolio', home_link: 'Fandraisana', about_link: 'Momba Ahy', services_link: 'Tolotra', contact_link: 'Fifandraisana', lang_select_title: 'Fidio Teny', home_greeting: 'Tonga Soa!', home_subtitle: 'MARKETING & FINANCIAL OFFICER', home_bio: 'Ny Aro no anarako, ary mitady toerana junior aho hanatsarana ny fahaizako. Mpianatra mavitrika, liam-pahalalana ary mahay miovaova. Tena mazoto mianatra sy mitombo amin\'ny tontolo matihanina.', home_cv_btn: 'Sintomy CV', home_contact_btn: 'Mifandraisa Aminay', about_title: 'Momba Ahy', about_text: 'Ity ny faritra "Momba Ahy". Azo apetraka eto ny tantaram-piainanao, ny antony manosika anao, ary ny dianao.', services_title: 'Tolotra', services_text: 'Ity ny faritra "Tolotra". Azonao soratana eto ny fahaiza-manao lehibe : Digital Marketing, Fifandraisana, Fandaminana, sns.', contact_title: 'Mifandraisa Aminay', contact_encouragement: 'Manana tetikasa ve ianao, fotoana iray sa fanontaniana tsotra? Alefaso hafatra aho!', contact_name_placeholder: 'Anarana', contact_firstname_placeholder: 'Fanampiny', contact_email_placeholder: 'Mailaka', contact_age_placeholder: 'Taona', contact_message_placeholder: 'Ny hafatrao na ny tolotrao...', contact_send_btn: 'Alefaso', footer_rights: 'Zo rehetra voatokana.', lang_mg: 'Malagasy', lang_fr: 'Frantsay', lang_en: 'Anglisy', lang_zh: 'Sinoa', lang_ar: 'Arabo', lang_de: 'Alemana'
+            },
+            zh: {
+                page_title: 'Ny Aro 作品集', home_link: '主页', about_link: '关于', services_link: '服务', contact_link: '联系', lang_select_title: '选择语言', home_greeting: '欢迎！', home_subtitle: '市场营销与金融官', home_bio: '我叫 Ny Aro，我正在寻找一个初级职位来进一步发展我的技能。我是一个充满活力、好奇心强、多才多艺的学生。有高度的学习动力和在专业环境中成长的愿望。', home_cv_btn: '下载简历', home_contact_btn: '联系我', about_title: '关于我们', about_text: '这是"关于我们"部分。你可以在这里放置你的详细简历、动机和职业道路。', services_title: '服务', services_text: '这是"服务"部分。你可以在这里列出你的核心技能：数字营销、公共关系、组织等。', contact_title: '保持联系', contact_encouragement: '您有一个项目、一个机会或只是一个问题吗？给我留言！我始终对新的合作持开放态度，并渴望学习。', contact_name_placeholder: '姓氏', contact_firstname_placeholder: '名字', contact_email_placeholder: '电子邮件', contact_age_placeholder: '年龄', contact_message_placeholder: '您的消息或建议...', contact_send_btn: '发送', footer_rights: '版权所有。', lang_mg: '马达加斯加语', lang_fr: '法语', lang_en: '英语', lang_zh: '中文', lang_ar: '阿拉伯语', lang_de: '德语'
+            },
+            ar: {
+                page_title: 'ني أرو- بورتفوليو', home_link: 'الرئيسية', about_link: 'عني', services_link: 'الخدمات', contact_link: 'اتصل', lang_select_title: 'اختر اللغة', home_greeting: 'أهلاً وسهلاً!', home_subtitle: 'مسؤول تسويق وشؤون مالية', home_bio: 'اسمي ني أرو، وأبحث عن منصب مبتدئ لمواصلة تطوير مهاراتي. أنا طالب ديناميكي، فضولي، ومتعدد الاستخدامات. لدي دافع كبير للتعلم والنمو في بيئة مهنية.', home_cv_btn: 'تنزيل السيرة الذاتية', home_contact_btn: 'اتصل بي', about_title: 'عني', about_text: 'هذا هو قسم "عني". يمكنك وضع سيرتك الذاتية المفصلة، ودوافعك، ومسيرتك المهنية هنا.', services_title: 'الخدمات', services_text: 'هذا هو قسم "الخدمات". يمكنك سرد مهاراتك الأساسية: التسويق الرقمي، العلاقات العامة، التنظيم، إلخ.', contact_title: 'لنبقى على اتصال', contact_encouragement: 'هل لديك مشروع، فرصة، أو مجرد سؤال؟ أرسل لي رسالة! أنا دائماً منفتح على التع تعاون الجديد وحريص على التعلم.', contact_name_placeholder: 'الاسم', contact_firstname_placeholder: 'اللقب', contact_email_placeholder: 'البريد الإلكتروني', contact_age_placeholder: 'العمر', contact_message_placeholder: 'رسالتك أو اقتراحك...', contact_send_btn: 'إرسال', footer_rights: 'جميع الحقوق محفوظة.', lang_mg: 'مدغشقرية', lang_fr: 'فرنسية', lang_en: 'إنجليزية', lang_zh: 'صينية', lang_ar: 'عربية', lang_de: 'ألمانية'
+            }
+        };
+
+        function updateText(lang) {
+            const t = translations[lang];
+
+            // 1. Mettre à jour les éléments de texte (data-i18n)
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (t[key]) {
+                    element.textContent = t[key];
+                }
+            });
+
+            // 2. Mettre à jour les placeholders des champs de formulaire (data-i18n-placeholder)
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if (t[key]) {
+                    element.setAttribute('placeholder', t[key]);
+                }
+            });
+
+            // 3. FIX: Supprime la logique RTL/font-family pour l'arabe. 
+            // La structure reste LTR (Gauche-Droite) pour toutes les langues.
+            const html = document.documentElement;
+            html.removeAttribute('dir'); 
+            document.body.style.fontFamily = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+            
+            // 4. Mettre à jour l'attribut lang de la balise HTML
+            html.setAttribute('lang', lang);
+        }
+
+        // Fonction principale pour changer la langue
+        window.changeLanguage = function(lang) {
+            updateText(lang);
+            // Fermer le menu après le changement
+            toggleMenu(); 
+        }
+        
         document.addEventListener('DOMContentLoaded', function() {
             // --- Données & Variables de Navigation ---
             const sections = ['home', 'about', 'services', 'contact'];
@@ -495,26 +885,21 @@
             const navLinks = document.querySelectorAll('#nav-links a');
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
+            const languageMenu = document.getElementById('language-menu');
             let currentSectionIndex = 0;
             
             // --- Navigation par Flèche / Menu ---
 
-            /**
-             * Défile à la section spécifiée par son index.
-             * @param {number} index - Index de la section (0 à 3)
-             */
             window.navigateSection = function(index) {
-                // S'assurer que l'index est dans les limites
                 if (index >= 0 && index < sections.length) {
                     currentSectionIndex = index;
-                    const offset = -currentSectionIndex * 25; // Chaque section fait 25%
+                    const offset = -currentSectionIndex * 25; 
                     pageWrapper.style.transform = `translateX(${offset}%)`;
                     updateURLHash(sections[currentSectionIndex]);
                     updateActiveLink();
                 }
             }
 
-            // Gestionnaires d'événements pour les flèches
             if (prevBtn && nextBtn) {
                 prevBtn.addEventListener('click', () => {
                     navigateSection(currentSectionIndex - 1);
@@ -525,7 +910,6 @@
                 });
             }
 
-            // Gestionnaires d'événements pour les liens de navigation
             navLinks.forEach((link, index) => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault(); 
@@ -533,36 +917,36 @@
                 });
             });
 
-            /**
-             * Met à jour la classe 'active' sur les liens de navigation.
-             */
             function updateActiveLink() {
                 navLinks.forEach(link => link.classList.remove('active'));
                 navLinks[currentSectionIndex].classList.add('active');
             }
 
-            /**
-             * Met à jour le hash de l'URL sans déclencher de rechargement.
-             */
             function updateURLHash(hash) {
                 history.pushState(null, null, `#${hash}`);
             }
+
+            // --- Menu Hamburger / Langues ---
+            window.toggleMenu = function() {
+                languageMenu.classList.toggle('active');
+                // Optionnel: Empêcher le défilement du corps quand le menu est ouvert
+                // Note: La valeur 'hidden' est déjà appliquée dans le CSS du body par défaut.
+                // Ici, nous laissons le 'overflow: hidden' permanent pour l'effet Full Page.
+            };
 
             // --- Initialisation ---
             
             // Mise à jour de l'année du copyright
             document.getElementById('current-year').textContent = new Date().getFullYear();
 
-            // Initialiser la page en fonction du hash de l'URL ou par défaut à Home
+            // 1. Définir la langue initiale (fr est par défaut dans le HTML)
+            const initialLang = document.documentElement.lang || 'fr';
+            updateText(initialLang); // Ceci applique les traductions françaises sur les liens.
+
+            // 2. Initialiser la page en fonction du hash de l'URL ou par défaut à Home
             const initialHash = window.location.hash.substring(1);
             const initialIndex = sections.indexOf(initialHash);
             navigateSection(initialIndex > -1 ? initialIndex : 0);
-
-
-            // Fonction pour le menu hamburger (à développer si nécessaire)
-            window.toggleMenu = function() {
-                alert("Le menu de navigation mobile s'ouvrira ici !");
-            };
         });
     </script>
 </body>
